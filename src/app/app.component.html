@@ -1,0 +1,120 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <div class="card-title form-container-width" >
+  </div>
+  <div class="mat-card-width form-container-width" >
+    <mat-card-title>Bayilik On basvuru Formu</mat-card-title>
+    <form [formGroup]="bilgi">
+      <mat-card style="width:100%;">     
+        <mat-card-content>
+          <div class="formContainer" >
+            <div fxLayout="row" class='custom-fields'>
+              <mat-form-field class="size" flex>
+                <mat-label>Isim Soyisim</mat-label>
+                <input formControlName="name"  matInput  required="true" maxlength="50"/>
+                <mat-error *ngIf="bilgi.get('name')?.hasError('required')">
+                Lutfen bos birakmayiniz
+               </mat-error>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" class='custom-fields'>
+              <mat-form-field class="size"flex>
+                <mat-label>TC</mat-label>
+                <input formControlName="tc"  matInput required="true"/>
+                <mat-error *ngIf="bilgi.get('tc')?.hasError('pattern')">
+                  Sadece numara giriniz
+                 </mat-error>  
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" class='custom-fields'>
+              <mat-form-field class="size"flex>
+                <mat-label>Adres</mat-label>  
+                <input formControlName="adress"   matInput  required="true" />
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" class='custom-fields'>
+              <mat-form-field class="size" flex>
+                <mat-label>Telefon</mat-label>  
+                <input formControlName="phone"   matInput  required="true" inputmode="numeric" pattern="[0-9]*" digitOnly />  
+                <mat-error *ngIf="bilgi.get('phone')?.hasError('pattern')">
+                  Sadece numara giriniz
+                 </mat-error>       
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" class='custom-fields'>
+              <mat-form-field class="size" flex>
+                <mat-label>E posta</mat-label>  
+                <input formControlName="email"   matInput  required="true"/>
+              </mat-form-field>
+            </div>
+            <mat-form-field>
+              <mat-label>Dogum Tarihi</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="birthDate">
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div fxLayout="row" class='custom-fields'>
+              <mat-form-field class="size" flex >
+                <mat-label>Parakente Ticaret Ile Ugrastiniz mi?</mat-label>  
+                <mat-select formControlName="parakende">
+                  <mat-option value="Evet">Evet</mat-option>
+                  <mat-option value="Hayir">Hayir</mat-option>
+                </mat-select>                  
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" class='custom-fields'>
+              <mat-form-field class="size" flex>
+                <mat-label>Lokumcu Baba'yi tercih etmenizin sebebi nedir?</mat-label>  
+                <textarea matInput formControlName="reason"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout="row" class='custom-fields'>
+            <mat-form-field class="size" flex>
+              <mat-label>Hangi Semt icin Lokumcu Baba Isletmeciligi Dusunuyorsunuz?</mat-label>  
+              <textarea matInput formControlName="semt"></textarea>
+            </mat-form-field>
+         
+        </div>
+        <div fxLayout="row" class='custom-fields'>
+          <mat-form-field class="size"flex>
+            <mat-label>Yatirim miktariniz nedir?</mat-label>  
+            <input formControlName="quantity"   matInput  required="true" />
+            <mat-error *ngIf="bilgi.get('quantity')?.hasError('pattern')">
+              Sadece numara giriniz
+             </mat-error>  
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" class='custom-fields'>
+          <mat-form-field class="size" flex>
+            <mat-label>Eklemek Istedikleriniz</mat-label>  
+            <textarea matInput formControlName="ek"></textarea>
+          </mat-form-field>
+       
+      </div>
+        </mat-card-content>
+        <div mat-dialog-actions>
+          <button style="margin:20px;" type="submit" mat-raised-button color="primary" (click)="Save()" cdkFocusInitial>Save</button>
+          <button mat-raised-button color="warn" mat-dialog-close>Close</button>         
+      </div>
+      
+    </mat-card>
+    </form>
+   
+  </div>
+  <div class="bottom-action-button form-container-width" fxLayout='row' fxLayoutAlign='end center'
+    style='margin-top: 20px;' fxLayoutGap='20px'>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

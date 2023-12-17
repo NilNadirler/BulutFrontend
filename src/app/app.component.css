@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  .form-container {
+    max-height: 400px; /* Set a maximum height for the container */
+    overflow-y: auto; /* Enable vertical scrolling when content overflows */
+    padding: 16px; /* Optional: Add padding for spacing */
+    width: 700px;
+  }
+  .size {
+  
+    width: 435px;
+   
+}
